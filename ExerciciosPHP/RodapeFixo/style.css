@@ -1,0 +1,25 @@
+html, body{
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    min-height: 100vh;
+}
+
+main{
+    flex:1;
+   
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(157, 180, 201);
+    text-align: center;
+    padding: 15px;
+}

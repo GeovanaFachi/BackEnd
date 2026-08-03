@@ -4,6 +4,6 @@
     echo "LISTA DE COMPRAS";
 
     foreach ($produtos as $lista) {
-        echo "<li>$lista <br></li>";
+        echo "<ul><li>$lista <br></li></ul>";
     }
 ?>
