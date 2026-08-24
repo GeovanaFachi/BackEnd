@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Pagina 2</title>
+    <title>Pagina3</title>
 
     <link rel="stylesheet" href"style.css">
 </head>
 <body>
     <main>
-    <h2>Pagina 2</h2>
+    <h2>Pagina 3</h2>
 
     </main>
-    <?php include_once 'ExibirRodape.php'; ?>
+    <?php require 'ExibirRodape.php'; ?>
 
 </body>
 </html>
