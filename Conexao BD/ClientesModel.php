@@ -25,4 +25,23 @@ class ClientesModel {
 
         return $this->db->lastInsertId();
     }
-}
+
+    public function alterarContato($contato, $id) {
+        $sql = "UPDATE clientes SET contato =? WHERE ID = ?";
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute([$contato, $id]);
+
+        return $stmt->rowCount();
+    }
+
+    public function deletarContato($id) {
+    $sql = "DELETE FROM clientes WHERE id = ?";
+    $stmt = $this->db->prepare($sql);
+
+    $stmt->execute([$id]);
+
+    return $stmt->rowCount();
+    }
+
+   }
