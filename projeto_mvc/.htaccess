@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteBase /projeto_mvc/
+ 
+# EXCEÇÃO: Se a requisição for para o phpmyadmin, não redireciona
+
+RewriteCond %{REQUEST_URI} !^/phpmyadmin [NC]
+ 
+# Envia tudo silenciosamente para a pasta public
+
+RewriteRule ^(.*)$ public/$1 [L]
+ 
