@@ -1,0 +1,1 @@
+Classes que cuidam da lógica.

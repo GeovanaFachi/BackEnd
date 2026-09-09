@@ -1,0 +1,1 @@
+Onde moram os arquivos HTML/PHP de exibição.

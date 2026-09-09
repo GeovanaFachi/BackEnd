@@ -1,0 +1,102 @@
+TRABALHO BACK END
+
+Criar uma tela
+Com:
+- CRUD
+- BACK/FRONT(IA)
+- BANCO DE DADOS
+- MVC
+- POO
+- GITHUB PUBLIC
+
+eNota Facil - Ambiente para lançar notas de entrada
+Cadastrar notas de entradas:
+    - Fornecedor cadastrado banco de dados, colocar cnpj puchar nome ou cadastrar fornecedor 
+    - Numero da nota, data, valor e forma de pagamento
+    - Classificação das notas (uso e consumo, imobilizado, venda, industrialização) e cadastrar nova Classificação
+    - Salvar, editar e apagar os lançamento
+    - Talvez ter grafico classificando o estoque por Classificação
+
+FAZER EMPRESA CONFECÇÕES LANÇANDO AS NOTAS
+
+/*criação banco de dados e-Nota*/
+create database db_enota;
+
+use db_enota;
+
+/*criação tabelas */
+CREATE TABLE fornecedor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    razao_social VARCHAR(150) NOT NULL,
+    cnpj VARCHAR(18) NOT null unique,
+    cidade VARCHAR(100) not NULL,
+    estado CHAR(2) not NULL,
+    rua VARCHAR(100) not NULL,
+    numero INT not NULL
+);
+
+CREATE TABLE classificacao (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cfop VARCHAR(10) not null,
+    descricao VARCHAR(255) not NULL
+);
+
+CREATE TABLE forma_pagamento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE nota_entrada (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fornecedor_id INT NOT NULL,
+    numero_nf INT NOT NULL,
+    data_emissao DATE NOT NULL,
+    valor_total DECIMAL(15,2) NOT NULL,
+    classificacao_id INT NOT NULL,
+    forma_pagamento_id INT NOT NULL,
+
+    FOREIGN KEY (fornecedor_id) REFERENCES fornecedor(id),
+    FOREIGN KEY (classificacao_id) REFERENCES classificacao(id),
+    FOREIGN KEY (forma_pagamento_id) REFERENCES forma_pagamento(id)
+);
+
+
+/*inserção dos dados*/
+
+INSERT INTO fornecedor (razao_social, cnpj, cidade, estado, rua, numero) VALUES
+('Tecidos Brasil Sul Ltda', '10.001.001/0001-01', 'Brusque', 'SC', 'Rua das Indústrias', '125'),
+('Malhas Catarinense Ltda', '10.002.002/0001-02', 'Blumenau', 'SC', 'Rua Hermann Hering', '340'),
+('Fios & Linhas Comércio Ltda', '10.003.003/0001-03', 'Jaraguá do Sul', 'SC', 'Rua das Fiações', '87'),
+('Aviamentos União Ltda', '10.004.004/0001-04', 'Guabiruba', 'SC', 'Rua dos Tecelões', '215'),
+('Botões Brasil Indústria Ltda', '10.005.005/0001-05', 'Brusque', 'SC', 'Rua dos Botões', '560'),
+('Zíperes Catarinense Ltda', '10.006.006/0001-06', 'Gaspar', 'SC', 'Rua Industrial', '142'),
+('Elásticos Sul Comércio Ltda', '10.007.007/0001-07', 'Blumenau', 'SC', 'Rua do Comércio', '728'),
+('Etiquetas Personalizadas Brasil Ltda', '10.008.008/0001-08', 'Itajaí', 'SC', 'Rua das Etiquetas', '96'),
+('Embalagens Oeste Ltda', '10.009.009/0001-09', 'Chapecó', 'SC', 'Rua das Embalagens', '415'),
+('Plásticos e Sacarias Sul Ltda', '10.010.010/0001-10', 'Chapecó', 'SC', 'Rua Industrial Oeste', '830'),
+('Máquinas de Costura Santa Catarina Ltda', '10.011.011/0001-11', 'Joinville', 'SC', 'Rua das Máquinas', '275'),
+('Agulhas e Acessórios Brasil Ltda', '10.012.012/0001-12', 'Blumenau', 'SC', 'Rua dos Acessórios', '188'),
+('Tintas Têxteis Nacional Ltda', '10.013.013/0001-13', 'São Paulo', 'SP', 'Rua dos Químicos', '650'),
+('Química Têxtil Brasileira Ltda', '10.014.014/0001-14', 'Americana', 'SP', 'Rua da Indústria Têxtil', '920'),
+('Tecelagem Paulista Ltda', '10.015.015/0001-15', 'Americana', 'SP', 'Rua dos Tecelões', '315'),
+('Malharia Paraná Ltda', '10.016.016/0001-16', 'Londrina', 'PR', 'Rua das Malharias', '470'),
+('Aviamentos Paraná Comércio Ltda', '10.017.017/0001-17', 'Maringá', 'PR', 'Rua dos Aviamentos', '135'),
+('Linhas Industriais do Brasil Ltda', '10.018.018/0001-18', 'Curitiba', 'PR', 'Rua das Linhas', '785'),
+('Embalagens Personalizadas Sul Ltda', '10.019.019/0001-19', 'Caxias do Sul', 'RS', 'Rua das Embalagens', '250'),
+('Ferramentas e Equipamentos Têxteis Ltda', '10.020.020/0001-20', 'Caxias do Sul', 'RS', 'Rua dos Equipamentos', '610');
+
+
+INSERT INTO classificacao (nome, cfop, descricao) VALUES
+('Revenda', '1102/2102', 'Compra de mercadoria para comercialização.'),
+('Industrialização', '1101/2101', 'Compra de matéria-prima ou material destinado à industrialização.'),
+('Uso e Consumo', '1556/2556', 'Compra de material destinado ao uso e consumo da empresa.'),
+('Imobilizado', '1551/2551', 'Compra de bem destinado ao ativo imobilizado da empresa.'),
+('Serviço', '1933/2933', 'Serviços contratados pela empresa.'),
+('Outros', '1949/2949', 'Outras despesas não classifcadas anteriormente.');
+
+
+INSERT INTO forma_pagamento (nome) VALUES
+('Dinheiro'),
+('PIX'),
+('Boleto Bancário');

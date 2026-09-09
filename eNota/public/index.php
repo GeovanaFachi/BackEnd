@@ -1,0 +1,1 @@
+A única pasta que o "mundo externo" vê. Aqui fica o index.php, o CSS e as Imagens.
