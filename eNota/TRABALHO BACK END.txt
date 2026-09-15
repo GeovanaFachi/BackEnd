@@ -19,6 +19,8 @@ Cadastrar notas de entradas:
 
 FAZER EMPRESA CONFECÇÕES LANÇANDO AS NOTAS
 
+
+PARTE DO BANCO DE DADOS
 /*criação banco de dados e-Nota*/
 create database db_enota;
 

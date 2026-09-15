@@ -1,5 +1,3 @@
-Arquivos de conexão com o banco.
-
 <?php
 $host = 'localhost';
 $db = 'db_enota';
