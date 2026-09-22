@@ -1,0 +1,364 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+
+
+    
+}
+
+
+/* =========================================
+   ÁREA PRINCIPAL
+========================================= */
+
+body > div,
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+h1 {
+    margin-bottom: 30px;
+    color: #102a43;
+    font-size: 28px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #163a5f;
+    font-size: 21px;
+    text-align: center;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+    color: #174a7e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+button,
+.btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #163a5f;
+    color: white;
+    padding: 9px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #102a43;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   FORMULÁRIOS
+========================================= */
+
+form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e1e5ea;
+    width: 90%;
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #34495e;
+    font-size: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #cbd5df;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #174a7e;
+    box-shadow: 0 0 0 2px rgba(23, 74, 126, 0.10);
+}
+
+
+/* =========================================
+   CAMPO FORNECEDOR + BOTÃO
+========================================= */
+
+.fornecedor-campo {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.fornecedor-campo select {
+    flex: 1;
+}
+
+.fornecedor-campo button {
+    width: auto;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   TABELAS
+========================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #e1e5ea;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #163a5f;
+    color: white;
+}
+
+th {
+    padding: 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+td {
+    padding: 11px 12px;
+    border-top: 1px solid #e8ecf0;
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background-color: #f7f9fb;
+}
+
+
+/* =========================================
+   AÇÕES DA TABELA
+========================================= */
+
+.acoes {
+    white-space: nowrap;
+}
+
+.acoes a {
+    margin-right: 10px;
+}
+
+.acoes a:last-child {
+    margin-right: 0;
+}
+
+
+/* =========================================
+   BOTÃO DE EXCLUSÃO
+========================================= */
+
+.btn-excluir {
+    color: #a52a2a;
+}
+
+.btn-excluir:hover {
+    color: #7d1f1f;
+
+} 
+.btn-cadastrar {
+    display: inline-block;
+    background-color: #163a5f;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 2px;
+    border: 1px solid #163a5f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-cadastrar:hover {
+    background-color: #102a43;
+    border-color: #102a43;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   BOTÃO VOLTAR
+========================================= */
+
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: #163a5f;
+}
+
+
+/* =========================================
+   ÁREA DE BOTÕES DO FORMULÁRIO
+========================================= */
+
+.acoes-formulario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   MENSAGENS
+========================================= */
+
+.mensagem {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #eaf1f8;
+    color: #163a5f;
+    border: 1px solid #cdddeb;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 800px) {
+
+    body > div,
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .fornecedor-campo {
+        display: block;
+    }
+
+    .fornecedor-campo button {
+        margin-top: 10px;
+    }
+
+    form {
+        padding: 18px;
+    }
+}
+
+/* =========================================
+   CAMPOS LADO A LADO
+========================================= */
+
+.linha-campos {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.linha-campos > div {
+    flex: 1;
+}
+
+.linha-campos input,
+.linha-campos select {
+    width: 100%;
+}
+
+/* =========================================
+   PÁGINAS DE FORNECEDOR
+========================================= */
+
+.pagina-fornecedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.pagina-fornecedor h1 {
+    width: 100%;
+    max-width: none;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+.formulario-fornecedor {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+
+    background-color: #163a5f;
+    color: white;
+
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    background-color: #102a43;
+    color: white;
+    text-decoration: none;
+}

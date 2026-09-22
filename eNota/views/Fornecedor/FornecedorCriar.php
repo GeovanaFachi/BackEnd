@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Fornecedor</title>
+
+    <link rel="stylesheet" href="../public/stylo.css">
 </head>
 
 <body>
+    <div class="formulario-fornecedor">
 
     <h1>Cadastrar Fornecedor</h1>
 
-    <form method="POST" action="index.php?controller=fornecedor&action=salvar">
+    <form method="POST" action="index.php?acao=fornecedor_cadastrar">
 
         <div>
             <label>Razão Social:</label>
@@ -54,12 +57,17 @@
 
         <br>
 
+        <div class="acoes-formulario">
         <button type="submit">Salvar</button>
+        <a href="index.php?acao=fornecedor">Cancelar</a>
+        </div>
+
     </form>
 
     <br>
 
-    <a href="index.php?controller=fornecedor&action=index">Voltar</a>
+    <a href="index.php">Voltar</a>
+</div>
 
 </body>
 

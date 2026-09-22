@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Fornecedores</title>
+
+    <link rel="stylesheet" href="../public/stylo.css">
 </head>
 
 <body>
+      <div class="pagina-fornecedor">
+
     <h1>Fornecedores</h1>
-    <a href="index.php?controller=fornecedor&action=criar">Cadastrar fornecedor</a>
+    <a class="btn-cadastrar" href="index.php?acao=fornecedor_criar"><button type="button">Cadastrar Fornecedor</button></a>
 
     <br>
 
@@ -35,9 +39,9 @@
                 <td><?= htmlspecialchars($fornecedor["estado"]) ?></td>
                 <td><?= htmlspecialchars($fornecedor["rua"]) ?></td>
                 <td><?= htmlspecialchars($fornecedor["numero"]) ?></td>
-                <td><a class="btn btn-editar" href="index.php?id=<?= $fornecedor['id'] ?>">Editar</a>
-                    <a class="btn btn-apagar" href="index.php?acao=excluir&id=<?= $fornecedor['id'] ?>"
-                           onclick="return confirm('Apagar este usuário?')">Apagar</a>
+                <td class ="acoes"><a class="btn btn-editar" href="index.php?acao=fornecedor_editar&id=<?= $fornecedor['id'] ?>">Editar</a>
+                    <a class="btn-excluir" href="index.php?acao=fornecedor_excluir&id=<?= $fornecedor['id'] ?>"
+                           onclick="return confirm('Apagar este Fornecedor?')">Apagar</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -47,6 +51,8 @@
     <br>
 
     <a href="index.php">Voltar</a>
+
+</div>
 
 </body>
 

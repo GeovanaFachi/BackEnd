@@ -22,6 +22,57 @@ try {
             criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
     ");
+
+
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS fornecedor (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            razao_social VARCHAR(150) NOT NULL,
+            cnpj VARCHAR(18) NOT NULL UNIQUE,
+            cidade VARCHAR(100) NOT NULL,
+            estado CHAR(2) NOT NULL,
+            rua VARCHAR(100) NOT NULL,
+            numero INT NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    ");
+
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS classificacao (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nome VARCHAR(100) NOT NULL,
+            cfop VARCHAR(10) NOT NULL,
+            descricao VARCHAR(255) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    ");
+
+
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS forma_pagamento (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nome VARCHAR(50) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    ");
+
+
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS nota_entrada (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            fornecedor_id INT NOT NULL,
+            numero_nf INT NOT NULL,
+            data_emissao DATE NOT NULL,
+            valor_total DECIMAL(15,2) NOT NULL,
+            classificacao_id INT NOT NULL,
+            forma_pagamento_id INT NOT NULL,
+            FOREIGN KEY (fornecedor_id)
+                REFERENCES fornecedor(id),
+            FOREIGN KEY (classificacao_id)
+                REFERENCES classificacao(id),
+            FOREIGN KEY (forma_pagamento_id)
+                REFERENCES forma_pagamento(id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    ");
+
+
 } catch (PDOException $e) {
     die('Erro ao conectar ao banco: ' . $e->getMessage());
 }
